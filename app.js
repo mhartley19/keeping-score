@@ -17,6 +17,7 @@ const scores =  [
     }
 ]
 
+console.log(scores[0].score)
 
 
 app.get('/',(req,res) => {
@@ -24,9 +25,7 @@ app.get('/',(req,res) => {
 })
 
 app.get('/scores',(req,res) => {
-    let topThree = scores.map(eachScore => eachScore.score)
-    topThree.sort(function(a, b){return b - a});
-    res.send(topThree.slice(0,3))
+    res.send(scores.slice(0,3))
 })
 
 app.post('/scores', (req, res) => {
